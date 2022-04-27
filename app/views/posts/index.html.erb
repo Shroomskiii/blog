@@ -1,0 +1,8 @@
+<h1>Посты</h1>
+<% @post.each do |post| %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <section>
+    <%= image_tag post.cover_picture if post.cover_picture.attached? %>
+   <p>Краткое описание: <%= post.summary %></p>
+</section>
+<% end %>
