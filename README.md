@@ -1,8 +1,10 @@
 Установить gems
-
 bundle install
+
 Установить пакеты Yarn
 yarn 
+В отдельном окне терминала запустить
+bin/webpack-dev-server
 
 Панель администратора
 http://localhost:3000/admin 
