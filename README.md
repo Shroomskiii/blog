@@ -4,11 +4,24 @@ bundle install
 Установить пакеты Yarn
 yarn 
 
+В отдельном окне терминала, запутить команду:
+bin/webpack-dev-server
+
+Перед запуском сервера
+В папке  "config" В файле database.yaml указать:
+host: localhost
+
+Запустить сервер  командой:
+rails s
+
 Панель администратора
 http://localhost:3000/admin 
 
 Docker 
 Чтобы запустить проект в Docker нужно выплонить следвющие команды
+В папке "config" В файле database.yaml указать:
+host: db
+
 Сборка проекта:
 docker-compose build
 
