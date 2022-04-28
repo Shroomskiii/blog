@@ -4,11 +4,9 @@ bundle install
 Установить пакеты Yarn
 yarn 
 
-<<<<<<< HEAD
 В отдельном окне терминала запустить команду
 bin/webpack-dev-server
 
-=======
 В отдельном окне терминала, запутить команду:
 bin/webpack-dev-server
 
@@ -19,7 +17,6 @@ host: localhost
 Запустить сервер  командой:
 rails s
 
->>>>>>> c427ef18744576be278058778a80e08c8d933e57
 Панель администратора
 http://localhost:3000/admin 
 
