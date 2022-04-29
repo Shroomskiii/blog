@@ -6,15 +6,11 @@ yarn
 
 
 Docker 
-Чтобы запустить проект в Docker нужно выплонить следвющие команды
+Чтобы запустить проект в Docker нужно выплонить следующие команды
+sudo docker-compose up --build
+
 В папке "config" В файле database.yaml указать:
 host: db
-
-Сборка проекта:
-docker-compose build
-
-Запуск проекта: 
-docker-compose up
 
 Остановить котейнер
 docker-compose down
