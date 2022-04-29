@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     if !@comment.save
       flash[:notice] = @commeny.errors.full_messages.to_sentence
     end
-    skip_forgery_protection :verify_authenticity_token
     redirect_to post_path(params[:post_id])
   end
 
