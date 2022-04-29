@@ -1,11 +1,18 @@
 Установить gems
 bundle install
 
-Установить пакеты Yarn:
+Установить пакеты Yarn командой:
 yarn 
 
 В отдельном окне терминала запустить команду:
 bin/webpack-dev-server
+
+Перед запуском сервера:
+В папке  "config" В файле database.yaml указать:
+host: localhost
+
+Запустить сервер  командой:
+rails s
 
 Панель администратора
 http://localhost:3000/admin 
@@ -32,4 +39,4 @@ docker exec -it "CONTAINER_ID" /bin/bash - вместо CONTAINER_ID встав�
 
 rails db:seed - создаст профиль администратора:
 email: 'admin@example.com', password: 'password'
-http://localhost:3000/admin - 
+http://localhost:3000/admin
