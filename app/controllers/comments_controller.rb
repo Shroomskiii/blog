@@ -1,13 +1,18 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def create
-  @post = Post.find(params[:post_id])
-  @comment = @post.comments.create(comment_params)    
-  redirect_to post_path(@post)
+    @comment = Post.find(params[:post_id]).comments.new(comment_params)
+    @comment.assign_attributes(user_id: current_user.id)
+
+    if !@comment.save
+      flash[:notice] = @comment.errors.full_messages.to_sentence
+    end
+    redirect_to post_path(params[:post_id])
   end
 
-
-private
+  private
   def comment_params
-    params.require(:comment).permit(:username, :body)
+    params.require(:comment).permit(:content)
   end
+
 end
