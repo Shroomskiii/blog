@@ -1,0 +1,8 @@
+<form action="<%= post_comments_path(post) %>" method="post">
+  <input name="authenticity_token" type="hidden"
+  value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
+
+  <textarea name="comment[content]" rows="5" cols="20"></textarea>
+
+  <input type="submit" value="Опубликовать комменатрий">
+</form>

@@ -12,33 +12,19 @@
 <strong>Текст поста</strong>
 <p><%= @post.body %> </p>
 <section>
+<small>Опубликован: <% if @post.user.email == current_user&.email %></small>
+  опубликован вами
+  <% else %>
+  <%= @post.user.email %>
+  <% end %>
   <small>
     <%if @post.user_id == current_user&.id %>
       <%= link_to 'Редактировать пост', edit_post_path(@post) %>
       <%= link_to 'Удалить пост',post_path(@post), method: :delete, data: {confirm: 'Вы уверены?'} %>
-    <% end %>
-  </small>
-  <hr>
-  <h2>Комментарии</h2>
-<% @post.comments.each do |comment| %>
-   <div class="alert alert-light">
-    <p><strong><%= comment.username%></strong>: <%= comment.body %>
-    </p>
-   </div>
-<% end %>
-
-  <h2>Добавление комментария</h2>
-    <%= form_for ([@post, @post.comments.build]) do |f| %>
-      <p>
-        Пользователь<br>
-        <%= f.text_field(:username, {:class => 'form-control'}) %>
-      </p>
-      <p>
-        Комменатрий<br>
-        <%= f.text_area(:body, {:class => 'form-control'}) %>   
-      </p>
-      <p>
-        <%= f.submit("Добавить комментарий", {:class => 'btn btn-warning'}) %>
-      </p>
-    <% end %>
-</section>
+    <% end %> 
+  </section>
+  <p>
+    <strong>Комментарии:</strong>
+    <%= render @post.comments %>
+    <%= render partial: 'comments/form', locals: { post: @post } %>
+  </p>

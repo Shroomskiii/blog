@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [ :show, :edit, :update, :destroy]
+  before_action :set_post, only: [ :edit, :update, :destroy]
 
   def index
     @post = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -18,7 +19,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-     render :new
+      flash[:notice] = @post.errors.full_messages.to_sentence
+      render :new
     end
   end
 
